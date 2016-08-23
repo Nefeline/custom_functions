@@ -17,10 +17,9 @@
 */
 
 // Customização dos Breadcrumbs
-add_filter('genesis_breadcrumb_args', 'lebrandt_breadcrumb_args');
+add_filter( 'genesis_breadcrumb_args', 'lebrandt_breadcrumb_args' );
 
-function lebrandt_breadcrumb_args($args)
-	{
+function lebrandt_breadcrumb_args( $args ) {
 	$args['home'] = 'Home';
 	$args['sep'] = ' / ';
 	$args['list_sep'] = ', ';
@@ -39,80 +38,71 @@ function lebrandt_breadcrumb_args($args)
 	$args['labels']['post_type'] = 'Arquivos de ';
 	$args['labels']['404'] = 'Não encontrado: ';
 	return $args;
-	}
+}
 
 // Customização do título da caixa de busca
-add_filter('genesis_search_title_text', 'lebrandt_titulo_busca');
+add_filter( 'genesis_search_title_text', 'lebrandt_titulo_busca' );
 
-function lebrandt_titulo_busca()
-	{
+function lebrandt_titulo_busca() {
 	return 'Resultados da sua busca:';
-	}
+}
 
 // Customização do texto de pesquisa dentro da caixa de busca
-add_filter('genesis_search_text', 'lebrandt_texto_busca');
+add_filter( 'genesis_search_text', 'lebrandt_texto_busca' );
 
-function lebrandt_texto_busca($texto)
-	{
+function lebrandt_texto_busca( $texto ) {
 	return esc_attr('Pesquisar');
-	}
+}
 
 // Customização da função post meta
 add_filter('genesis_post_meta', 'lebrandt_post_meta');
 
-function lebrandt_post_meta($post_meta)
-	{
-	if (!is_page())
-		{
+function lebrandt_post_meta( $post_meta ) {
+	if (!is_page()) {
 		$post_meta = '[post_categories before="Categoria(s): "] [post_tags before="Marcado como: "]';
 		return $post_meta;
-		}
 	}
+}
 
 // Customização dos textos para os links das páginas
-add_filter('genesis_prev_link_text', 'lebrandt_link_anterior');
+add_filter( 'genesis_prev_link_text', 'lebrandt_link_anterior' );
 
-function lebrandt_link_anterior($text)
-	{
+function lebrandt_link_anterior( $text ) {
 	$text = 'Anterior';
 	return $text;
-	}
+}
 
-add_filter('genesis_next_link_text', 'lebrandt_link_proximo');
+add_filter( 'genesis_next_link_text', 'lebrandt_link_proximo' );
 
-function lebrandt_link_proximo($text)
-	{
+function lebrandt_link_proximo( $text ) {
 	$text = 'Próximo';
 	return $text;
-	}
+}
 
 // Modifica o texto do link de comentários
-add_filter('genesis_post_info', 'lebrandt_post_info_filtro');
+add_filter( 'genesis_post_info', 'lebrandt_post_info_filtro' );
 
-function lebrandt_post_info_filtro($post_info)
-	{
+function lebrandt_post_info_filtro( $post_info ) {
 	return '[post_comments zero="Deixe um Comentário" one="1 Comentário" more="% Comentários"]';
-	}
+}
 
 // Modifica o texto comentários
-add_filter('genesis_title_comments', 'lebrandt_genesis_title_comments');
+add_filter( 'genesis_title_comments', 'lebrandt_genesis_title_comments' );
 
-function lebrandt_genesis_title_comments()
-	{
+function lebrandt_genesis_title_comments() {
 	$title = '<h3>Comentários</h3>';
 	return $title;
-	}
+}
 
 // Customização dos créditos da página
-add_filter('genesis_footer_creds_text', 'lebrandt_texto_credito');
+add_filter( 'genesis_footer_creds_text', 'lebrandt_texto_credito' );
 
-function lebrandt_texto_credito()
-	{
-?>
+function lebrandt_texto_credito() {
+	?>
     <p>&copy; Copyright <?php
 	echo date(' Y '); ?><a href="#">Nome da Companhia</a> &middot; <a href="http://exemplo.com.br/">Desenvolvido por Lebrandt</a></p>
     <?php
-	}
+}
 
 // Cria novos widgets
 genesis_register_sidebar( array(
@@ -124,45 +114,40 @@ genesis_register_sidebar( array(
 // Mostra o widget no tema em uma página específica
 add_action( 'genesis_before', 'lebrandt_adicionar_widget' );
 
-function lebrandt_adicionar_widget()
-	{
+function lebrandt_adicionar_widget() {
     if ( is_page( '12' ) )
     genesis_widget_area ('nome', array(
         'before'  => '<div class="nome"><div class="wrap">',
         'after'   => '</div></div>',
     ) );
-	}
+}
 
 // Modifica o texto o "autor diz" nos comentários
 add_filter('comment_author_says_text', 'lebrandt_autor_diz');
 
-function lebrandt_autor_diz()
-	{
+function lebrandt_autor_diz() {
 	return 'o autor diz';
-	}
+}
 
 // Customiza o botão enviar nos comentários
-add_filter('comment_form_defaults', 'lebrandt_botao_enviar');
+add_filter( 'comment_form_defaults', 'lebrandt_botao_enviar' );
 
-function lebrandt_botao_enviar($defaults)
-	{
+function lebrandt_botao_enviar($defaults) {
 	$defaults['label_submit'] = __('Enviar', 'custom');
 	return $defaults;
-	}
+}
 
 // Modifica o título dos comentários
-add_filter('comment_form_defaults', 'lebrandt_deixe_comentario');
+add_filter( 'comment_form_defaults', 'lebrandt_deixe_comentario' );
 
-function lebrandt_deixe_comentario($defaults)
-	{
+function lebrandt_deixe_comentario($defaults) {
 	$defaults['title_reply'] = __('Deixe o seu comentário aqui');
 	return $defaults;
-	}
+}
 
 // Modifica o link do WordPress leia mais
-add_filter('the_content_more_link', 'lebrandt_leia_mais');
+add_filter( 'the_content_more_link', 'lebrandt_leia_mais' );
 
-function lebrandt_leia_mais()
-	{
+function lebrandt_leia_mais() {
 	return '<a class="more-link" href="' . get_permalink() . '">Continue Lendo</a>';
-	}
+}
