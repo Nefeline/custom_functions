@@ -18,6 +18,8 @@
 * WordPress - Modifica o título dos comentários
 * WordPress - Modifica o link do WordPress leia mais
 
+# Custom Genesis e WordPress functions
+
 ### Index:
 
 * Genesis - Breadcrumbs Customization
