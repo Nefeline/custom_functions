@@ -3,7 +3,7 @@
 
 ### Índice:
 
-* Genesis - Customização dos Breadcrumbs -
+* Genesis - Customização dos Breadcrumbs
 * Genesis - Customização do título da caixa de busca
 * Genesis - Customização do texto de pesquisa dentro da caixa de busca
 * Genesis - Customização da função post meta
