@@ -17,7 +17,6 @@
 * WordPress - Customiza o botão enviar nos comentários
 * WordPress - Modifica o título dos comentários
 * WordPress - Modifica o link do WordPress leia mais
-*
 
 # Custom Genesis e WordPress functions
 
