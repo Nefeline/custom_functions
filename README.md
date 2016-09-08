@@ -1,6 +1,7 @@
 # Funções Customizadas Genesis e WordPress
 ### Customizações feitas para os temas WordPress desenvolvidos por Lebrandt Desenvolvimento Web
 
+
 ### Índice:
 
 * Genesis - Customização dos Breadcrumbs
